@@ -33,7 +33,7 @@ const projects = [
       { value: "9,726", label: "Images" },
       { value: "4", label: "Disease Classes" },
     ],
-    demo: "https://cassava-disease-classification-with-deep-learning.streamlit.app/",
+    demo: "https://cassava-disease-classification-with-deep-learning-t7jyapv6cayz.streamlit.app/",
     github:
       "https://github.com/Edward-Ed4/Cassava-Disease-Classification-with-Deep-learning",
   },
@@ -68,6 +68,7 @@ const projects = [
       { value: "3", label: "Lambda Fns" },
       { value: "CI/CD", label: "Automated" },
     ],
+    demo: "https://d18dq5screwix.cloudfront.net/",
     github: "https://github.com/Edward-Ed4/azure-serverless-todo",
   },
   {
