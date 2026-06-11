@@ -110,8 +110,7 @@ const projects = [
     title: "Hospital Management System",
     description:
       "A comprehensive Django-based backend for managing hospital operations — doctors, patients, appointments, diagnoses, and medical history — with a production-ready REST API and role-based access control.",
-    image:
-      "/hms.png",
+    image: "/hms.png",
     badge: "Backend System",
     badgeStyle: {
       background: "rgba(34,197,94,0.15)",
@@ -139,6 +138,8 @@ const projects = [
     ],
     demo: "https://medicore-hms-eooo.onrender.com/",
     github: "https://github.com/Edward-Ed4/hms_database",
+  },
+];
 
 function GitHubIcon() {
   return (
