@@ -213,10 +213,7 @@ body {
   font-size: clamp(48px, 10vw, 96px);
   font-weight: 700;
   margin: 0 0 16px;
-  background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #ffffff;
   animation: fadeInUp 0.8s ease-out 0.4s both;
 }
 
