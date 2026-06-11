@@ -111,7 +111,7 @@ const projects = [
     description:
       "A comprehensive Django-based backend for managing hospital operations — doctors, patients, appointments, diagnoses, and medical history — with a production-ready REST API and role-based access control.",
     image:
-      "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69934993075368f2806495d7/398c5fcf3_image.png",
+      "/hms.png",
     badge: "Backend System",
     badgeStyle: {
       background: "rgba(34,197,94,0.15)",
@@ -137,6 +137,7 @@ const projects = [
       { value: "REST", label: "API Ready" },
       { value: "RBAC", label: "Secured" },
     ],
+    demo: "https://medicore-hms-eooo.onrender.com/",
     github: "https://github.com/Edward-Ed4/hms_database",
 
 function GitHubIcon() {
