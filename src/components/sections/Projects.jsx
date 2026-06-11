@@ -5,10 +5,15 @@ const projects = [
   {
     title: "Pig Disease Detection System",
     description:
-      "An IoT + AI solution combining ESP32-CAM hardware and machine learning to monitor pig health in real-time, helping farmers detect illnesses early and reduce livestock losses.",
+      "An IoT + AI solution that combines ESP32-CAM hardware and machine learning to monitor pig health in real-time — helping farmers detect illnesses early and cut livestock losses.",
     image:
       "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69934993075368f2806495d7/aaef4c265_image.png",
-    badge: { label: "IoT + AI", color: "cyan" },
+    badge: "IoT + AI",
+    badgeStyle: {
+      background: "rgba(6,182,212,0.15)",
+      color: "#22d3ee",
+      border: "1px solid rgba(6,182,212,0.4)",
+    },
     tags: [
       "ESP32-CAM",
       "Machine Learning",
@@ -19,48 +24,52 @@ const projects = [
     ],
     features: [
       "Real-time image capture via ESP32-CAM",
-      "On-device ML model with TensorFlow Lite",
-      "Flutter mobile app for instant alerts",
-      "85% early detection rate in trials",
+      "On-device ML inference with TensorFlow Lite",
+      "Flutter mobile app for instant farmer alerts",
+      "85% early disease detection rate in trials",
     ],
-    links: {
-      demo: "https://edward-ed4.github.io/pig_disease_detection/",
-      github: "https://github.com/edward-ed4",
-      details: "/pig-disease",
-    },
+    stats: [
+      { value: "85%", label: "Detection Rate" },
+      { value: "24/7", label: "Monitoring" },
+      { value: "60%", label: "Cost Reduction" },
+    ],
+    demo: "https://edward-ed4.github.io/pig_disease_detection/",
+    github: "https://github.com/edward-ed4",
   },
   {
     title: "Hospital Management System",
     description:
-      "A comprehensive Django-based backend system for managing hospital operations — doctors, patients, appointments, diagnoses, schedules, and medical history with a REST API architecture.",
+      "A comprehensive Django-based backend for managing hospital operations — doctors, patients, appointments, diagnoses, and medical history with a production-ready REST API.",
     image:
       "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69934993075368f2806495d7/398c5fcf3_image.png",
-    badge: { label: "Backend System", color: "green" },
+    badge: "Backend System",
+    badgeStyle: {
+      background: "rgba(34,197,94,0.15)",
+      color: "#86efac",
+      border: "1px solid rgba(34,197,94,0.4)",
+    },
     tags: [
       "Python",
       "Django 5.1.6",
       "PostgreSQL",
-      "DRF",
+      "Django REST Framework",
       "Gunicorn",
       "WhiteNoise",
     ],
     features: [
       "Doctor & patient management modules",
       "Smart appointment scheduling with conflict detection",
-      "Role-based access control",
-      "Production-ready with Gunicorn + WhiteNoise",
+      "Role-based access control (admin, doctor, receptionist)",
+      "Production-ready: Gunicorn + WhiteNoise + PostgreSQL",
     ],
-    links: {
-      github: "https://github.com/edward-ed4",
-      details: "/hospital-management",
-    },
+    stats: [
+      { value: "6+", label: "Modules" },
+      { value: "REST", label: "API Ready" },
+      { value: "RBAC", label: "Secured" },
+    ],
+    github: "https://github.com/edward-ed4",
   },
 ];
-
-const badgeColors = {
-  cyan: "bg-cyan-500/20 text-cyan-300 border-cyan-500/40",
-  green: "bg-green-500/20 text-green-300 border-green-500/40",
-};
 
 function GitHubIcon() {
   return (
@@ -75,52 +84,75 @@ export function Projects() {
     <section id="projects" className="py-24 px-6 relative">
       <div className="max-w-6xl mx-auto">
         <ScrollReveal>
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
-            Featured <span className="animated-gradient-text">Projects</span>
-          </h2>
-          <p className="text-slate-500 text-center mb-16 max-w-lg mx-auto">
-            From IoT-powered livestock monitoring to full hospital management
-            systems
-          </p>
+          <div className="text-center mb-16">
+            <span className="inline-block px-4 py-1.5 rounded-full border border-slate-700 bg-slate-800/50 text-slate-400 text-sm font-medium mb-4">
+              What I've Built
+            </span>
+            <h2 className="text-4xl md:text-5xl font-bold">
+              Featured <span className="animated-gradient-text">Projects</span>
+            </h2>
+            <p className="text-slate-500 mt-4 max-w-lg mx-auto">
+              From IoT-powered livestock monitoring to full hospital management
+              systems
+            </p>
+          </div>
         </ScrollReveal>
 
-        <div className="flex flex-col gap-16">
+        <div className="flex flex-col gap-12">
           {projects.map((project, i) => (
             <ScrollReveal key={project.title} delay={100}>
               <div
-                className={`group grid md:grid-cols-2 gap-0 bg-slate-800/40 border border-slate-700/60 rounded-2xl overflow-hidden hover:border-slate-600 transition-all duration-500 hover:shadow-2xl hover:shadow-cyan-500/5`}
+                className="group rounded-2xl border border-slate-700/60 overflow-hidden transition-all duration-500 hover:border-slate-600"
+                style={{ background: "rgba(30,41,59,0.4)" }}
               >
-                {/* Image side */}
-                <div
-                  className={`relative overflow-hidden min-h-72 ${i % 2 === 1 ? "md:order-2" : ""}`}
-                >
+                {/* Image banner */}
+                <div className="relative h-56 overflow-hidden">
                   <img
                     src={project.image}
                     alt={project.title}
                     className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent" />
+                  <div
+                    className="absolute inset-0"
+                    style={{
+                      background:
+                        "linear-gradient(to bottom, rgba(15,23,42,0.3) 0%, rgba(15,23,42,0.85) 100%)",
+                    }}
+                  />
+
                   {/* Badge */}
                   <span
-                    className={`absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-semibold border ${badgeColors[project.badge.color]}`}
+                    className="absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-semibold"
+                    style={project.badgeStyle}
                   >
-                    {project.badge.label}
+                    {project.badge}
                   </span>
+
+                  {/* Stats overlay on image */}
+                  <div className="absolute bottom-4 left-4 right-4 flex gap-4">
+                    {project.stats.map((s) => (
+                      <div key={s.label} className="text-center">
+                        <div className="text-lg font-bold text-cyan-400">
+                          {s.value}
+                        </div>
+                        <div className="text-xs text-slate-400">{s.label}</div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
 
-                {/* Content side */}
-                <div
-                  className={`p-8 md:p-10 flex flex-col justify-between ${i % 2 === 1 ? "md:order-1" : ""}`}
-                >
-                  <div>
-                    <h3 className="text-2xl font-bold text-white mb-3">
-                      {project.title}
-                    </h3>
-                    <p className="text-slate-400 leading-relaxed mb-6">
-                      {project.description}
-                    </p>
+                {/* Content */}
+                <div className="p-8">
+                  <h3 className="text-2xl font-bold text-white mb-3">
+                    {project.title}
+                  </h3>
+                  <p className="text-slate-400 leading-relaxed mb-6">
+                    {project.description}
+                  </p>
 
-                    <div className="mb-6">
+                  <div className="grid md:grid-cols-2 gap-6 mb-6">
+                    {/* Features */}
+                    <div>
                       <p className="text-xs uppercase tracking-widest text-cyan-500 font-semibold mb-3">
                         Key Features
                       </p>
@@ -137,22 +169,29 @@ export function Projects() {
                       </ul>
                     </div>
 
-                    <div className="flex flex-wrap gap-2 mb-8">
-                      {project.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="px-2.5 py-1 rounded-md text-xs bg-slate-700/60 text-slate-400 border border-slate-600/50"
-                        >
-                          {tag}
-                        </span>
-                      ))}
+                    {/* Tech stack */}
+                    <div>
+                      <p className="text-xs uppercase tracking-widest text-cyan-500 font-semibold mb-3">
+                        Tech Stack
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        {project.tags.map((tag) => (
+                          <span
+                            key={tag}
+                            className="inline-block px-2.5 py-1 rounded-md text-xs bg-slate-700/60 text-slate-300 border border-slate-600/50"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                   </div>
 
+                  {/* Buttons */}
                   <div className="flex flex-wrap gap-3">
-                    {project.links.demo && (
+                    {project.demo && (
                       <ShimmerButton
-                        href={project.links.demo}
+                        href={project.demo}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-sm px-5 py-2.5"
@@ -161,12 +200,12 @@ export function Projects() {
                       </ShimmerButton>
                     )}
                     <a
-                      href={project.links.github}
+                      href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-slate-600 text-slate-400 text-sm font-medium hover:border-slate-400 hover:text-white transition-all duration-200"
                     >
-                      <GitHubIcon /> GitHub
+                      <GitHubIcon /> View on GitHub
                     </a>
                   </div>
                 </div>
