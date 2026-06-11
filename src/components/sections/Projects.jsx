@@ -3,9 +3,77 @@ import { ShimmerButton } from "../magicui/ShimmerButton";
 
 const projects = [
   {
+    title: "Cassava Leaf Disease Detection",
+    description:
+      "A deep learning system that classifies cassava leaf diseases from images using three transfer learning models — EfficientNetB0, ResNet50, and MobileNetV2 — deployed as a live Streamlit web app with camera capture and treatment advice.",
+    image: "/cassava.png",
+    badge: "Deep Learning",
+    badgeStyle: {
+      background: "rgba(168,85,247,0.15)",
+      color: "#d8b4fe",
+      border: "1px solid rgba(168,85,247,0.4)",
+    },
+    tags: [
+      "Python",
+      "TensorFlow",
+      "EfficientNetB0",
+      "ResNet50",
+      "MobileNetV2",
+      "Streamlit",
+      "Hugging Face",
+    ],
+    features: [
+      "3 CNN models trained & compared via transfer learning",
+      "ResNet50 best model: 81.5% validation accuracy",
+      "9,726 balanced images across 4 disease classes",
+      "Live camera capture + treatment advice in Streamlit",
+    ],
+    stats: [
+      { value: "81.5%", label: "Best Accuracy" },
+      { value: "9,726", label: "Images" },
+      { value: "4", label: "Disease Classes" },
+    ],
+    demo: "https://cassava-disease-classification-with-deep-learning.streamlit.app/",
+    github:
+      "https://github.com/Edward-Ed4/Cassava-Disease-Classification-with-Deep-learning",
+  },
+  {
+    title: "CloudTasks – AWS Serverless Todo App",
+    description:
+      "A fully serverless todo application on AWS — Lambda functions handle the API, API Gateway routes requests, MongoDB Atlas stores data, and the static frontend is hosted on S3 with a full CI/CD pipeline via GitHub Actions.",
+    image: "/cloudtasks.png",
+    badge: "Cloud / Serverless",
+    badgeStyle: {
+      background: "rgba(251,146,60,0.15)",
+      color: "#fdba74",
+      border: "1px solid rgba(251,146,60,0.4)",
+    },
+    tags: [
+      "AWS Lambda",
+      "API Gateway",
+      "MongoDB Atlas",
+      "AWS S3",
+      "AWS SAM",
+      "Node.js",
+      "GitHub Actions",
+    ],
+    features: [
+      "Three Lambda functions: getTodos, createTodo, deleteTodo",
+      "MongoDB Atlas with cached client across warm invocations",
+      "Static frontend hosted on AWS S3 with public website hosting",
+      "Full CI/CD pipeline — auto-deploys on every push to main",
+    ],
+    stats: [
+      { value: "100%", label: "Serverless" },
+      { value: "3", label: "Lambda Fns" },
+      { value: "CI/CD", label: "Automated" },
+    ],
+    github: "https://github.com/Edward-Ed4/azure-serverless-todo",
+  },
+  {
     title: "Pig Disease Detection System",
     description:
-      "An IoT + AI solution that combines ESP32-CAM hardware and machine learning to monitor pig health in real-time — helping farmers detect illnesses early and cut livestock losses.",
+      "An IoT + AI solution that combines ESP32-CAM hardware and machine learning to monitor pig health in real-time — helping farmers detect illnesses early and cut livestock losses significantly.",
     image:
       "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69934993075368f2806495d7/aaef4c265_image.png",
     badge: "IoT + AI",
@@ -39,7 +107,7 @@ const projects = [
   {
     title: "Hospital Management System",
     description:
-      "A comprehensive Django-based backend for managing hospital operations — doctors, patients, appointments, diagnoses, and medical history with a production-ready REST API.",
+      "A comprehensive Django-based backend for managing hospital operations — doctors, patients, appointments, diagnoses, and medical history — with a production-ready REST API and role-based access control.",
     image:
       "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69934993075368f2806495d7/398c5fcf3_image.png",
     badge: "Backend System",
@@ -85,38 +153,58 @@ export function Projects() {
       <div className="max-w-6xl mx-auto">
         <ScrollReveal>
           <div className="text-center mb-16">
-            <span className="inline-block px-4 py-1.5 rounded-full border border-slate-700 bg-slate-800/50 text-slate-400 text-sm font-medium mb-4">
+            <span
+              className="inline-block px-4 py-1.5 rounded-full text-sm font-medium mb-4"
+              style={{
+                border: "1px solid #1e293b",
+                background: "rgba(30,41,59,0.5)",
+                color: "#64748b",
+              }}
+            >
               What I've Built
             </span>
             <h2 className="text-4xl md:text-5xl font-bold">
               Featured <span className="animated-gradient-text">Projects</span>
             </h2>
-            <p className="text-slate-500 mt-4 max-w-lg mx-auto">
-              From IoT-powered livestock monitoring to full hospital management
-              systems
+            <p className="mt-4 max-w-lg mx-auto" style={{ color: "#475569" }}>
+              Deep learning, cloud infrastructure, IoT, and backend systems —
+              built to solve real problems
             </p>
           </div>
         </ScrollReveal>
 
-        <div className="flex flex-col gap-12">
-          {projects.map((project, i) => (
+        <div className="flex flex-col gap-10">
+          {projects.map((project) => (
             <ScrollReveal key={project.title} delay={100}>
               <div
-                className="group rounded-2xl border border-slate-700/60 overflow-hidden transition-all duration-500 hover:border-slate-600"
-                style={{ background: "rgba(30,41,59,0.4)" }}
+                className="group rounded-2xl overflow-hidden transition-all duration-500"
+                style={{
+                  background: "rgba(15,23,42,0.6)",
+                  border: "1px solid #1e293b",
+                }}
+                onMouseEnter={(e) =>
+                  (e.currentTarget.style.borderColor = "#334155")
+                }
+                onMouseLeave={(e) =>
+                  (e.currentTarget.style.borderColor = "#1e293b")
+                }
               >
                 {/* Image banner */}
-                <div className="relative h-56 overflow-hidden">
+                <div
+                  className="relative overflow-hidden"
+                  style={{ height: "220px" }}
+                >
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
+                    className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
                   />
+                  {/* gradient overlay */}
                   <div
                     className="absolute inset-0"
                     style={{
                       background:
-                        "linear-gradient(to bottom, rgba(15,23,42,0.3) 0%, rgba(15,23,42,0.85) 100%)",
+                        "linear-gradient(to bottom, rgba(15,23,42,0.2) 0%, rgba(15,23,42,0.88) 100%)",
                     }}
                   />
 
@@ -128,14 +216,19 @@ export function Projects() {
                     {project.badge}
                   </span>
 
-                  {/* Stats overlay on image */}
-                  <div className="absolute bottom-4 left-4 right-4 flex gap-4">
+                  {/* Stats row pinned to bottom of image */}
+                  <div className="absolute bottom-4 left-6 flex gap-6">
                     {project.stats.map((s) => (
-                      <div key={s.label} className="text-center">
-                        <div className="text-lg font-bold text-cyan-400">
+                      <div key={s.label}>
+                        <div
+                          className="text-base font-bold"
+                          style={{ color: "#22d3ee" }}
+                        >
                           {s.value}
                         </div>
-                        <div className="text-xs text-slate-400">{s.label}</div>
+                        <div className="text-xs" style={{ color: "#64748b" }}>
+                          {s.label}
+                        </div>
                       </div>
                     ))}
                   </div>
@@ -146,23 +239,37 @@ export function Projects() {
                   <h3 className="text-2xl font-bold text-white mb-3">
                     {project.title}
                   </h3>
-                  <p className="text-slate-400 leading-relaxed mb-6">
+                  <p
+                    className="leading-relaxed mb-7"
+                    style={{ color: "#64748b" }}
+                  >
                     {project.description}
                   </p>
 
-                  <div className="grid md:grid-cols-2 gap-6 mb-6">
+                  <div className="grid md:grid-cols-2 gap-6 mb-7">
                     {/* Features */}
                     <div>
-                      <p className="text-xs uppercase tracking-widest text-cyan-500 font-semibold mb-3">
+                      <p
+                        className="text-xs uppercase tracking-widest font-semibold mb-3"
+                        style={{ color: "#06b6d4" }}
+                      >
                         Key Features
                       </p>
                       <ul className="space-y-2">
                         {project.features.map((f) => (
                           <li
                             key={f}
-                            className="flex items-start gap-2 text-sm text-slate-400"
+                            className="flex items-start gap-2 text-sm"
+                            style={{ color: "#64748b" }}
                           >
-                            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-cyan-400 flex-shrink-0" />
+                            <span
+                              className="flex-shrink-0 rounded-full mt-1.5"
+                              style={{
+                                width: "6px",
+                                height: "6px",
+                                background: "#06b6d4",
+                              }}
+                            />
                             {f}
                           </li>
                         ))}
@@ -171,14 +278,22 @@ export function Projects() {
 
                     {/* Tech stack */}
                     <div>
-                      <p className="text-xs uppercase tracking-widest text-cyan-500 font-semibold mb-3">
+                      <p
+                        className="text-xs uppercase tracking-widest font-semibold mb-3"
+                        style={{ color: "#06b6d4" }}
+                      >
                         Tech Stack
                       </p>
                       <div className="flex flex-wrap gap-2">
                         {project.tags.map((tag) => (
                           <span
                             key={tag}
-                            className="inline-block px-2.5 py-1 rounded-md text-xs bg-slate-700/60 text-slate-300 border border-slate-600/50"
+                            className="inline-block px-2.5 py-1 rounded-md text-xs"
+                            style={{
+                              background: "rgba(30,41,59,0.8)",
+                              color: "#94a3b8",
+                              border: "1px solid #1e293b",
+                            }}
                           >
                             {tag}
                           </span>
@@ -187,7 +302,7 @@ export function Projects() {
                     </div>
                   </div>
 
-                  {/* Buttons */}
+                  {/* Action buttons */}
                   <div className="flex flex-wrap gap-3">
                     {project.demo && (
                       <ShimmerButton
@@ -203,7 +318,16 @@ export function Projects() {
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-slate-600 text-slate-400 text-sm font-medium hover:border-slate-400 hover:text-white transition-all duration-200"
+                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-200"
+                      style={{ border: "1px solid #1e293b", color: "#64748b" }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.borderColor = "#475569";
+                        e.currentTarget.style.color = "#ffffff";
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.borderColor = "#1e293b";
+                        e.currentTarget.style.color = "#64748b";
+                      }}
                     >
                       <GitHubIcon /> View on GitHub
                     </a>
