@@ -103,7 +103,8 @@ const projects = [
       { value: "60%", label: "Cost Reduction" },
     ],
     demo: "https://edward-ed4.github.io/pig_disease_detection/",
-    github: "https://github.com/edward-ed4",
+    github:
+      "https://github.com/Edward-Ed4/Automated-Pig-Disease-Detection-System",
   },
   {
     title: "Hospital Management System",
@@ -136,9 +137,7 @@ const projects = [
       { value: "REST", label: "API Ready" },
       { value: "RBAC", label: "Secured" },
     ],
-    github: "https://github.com/edward-ed4",
-  },
-];
+    github: "https://github.com/Edward-Ed4/hms_database",
 
 function GitHubIcon() {
   return (
