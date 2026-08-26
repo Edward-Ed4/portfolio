@@ -1,6 +1,4 @@
-import { Meteors } from "../magicui/Meteors";
-import { ShimmerButton } from "../magicui/ShimmerButton";
-import { AnimatedGradientText } from "../magicui/AnimatedGradientText";
+import { ParticleCanvas } from "../magicui/ParticleCanvas";
 import { TypingAnimation } from "../magicui/TypingAnimation";
 
 const socialLinks = [
@@ -35,14 +33,7 @@ const socialLinks = [
     label: "Email",
     href: "mailto:ebajuedward3@gmail.com",
     icon: (
-      <svg
-        width="18"
-        height="18"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-      >
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
         <rect x="2" y="4" width="20" height="16" rx="2" />
         <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
       </svg>
@@ -55,75 +46,66 @@ export function Hero() {
     <section
       id="home"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
-      style={{ paddingTop: "64px" }}
+      style={{ paddingTop: "72px", background: "#030712" }}
     >
-      {/* Dot grid */}
-      <div className="absolute inset-0 dot-grid" style={{ opacity: 0.4 }} />
+      {/* Three.js particle canvas */}
+      <ParticleCanvas />
 
-      {/* Blobs */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div
-          className="absolute rounded-full"
-          style={{
-            top: "20%",
-            left: "15%",
-            width: "400px",
-            height: "400px",
-            background:
-              "radial-gradient(circle, rgba(6,182,212,0.12) 0%, transparent 70%)",
-            filter: "blur(40px)",
-          }}
-        />
-        <div
-          className="absolute rounded-full"
-          style={{
-            bottom: "20%",
-            right: "10%",
-            width: "500px",
-            height: "500px",
-            background:
-              "radial-gradient(circle, rgba(59,130,246,0.1) 0%, transparent 70%)",
-            filter: "blur(40px)",
-          }}
-        />
-      </div>
+      {/* Radial glow behind content */}
+      <div
+        className="absolute pointer-events-none"
+        style={{
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+          width: "700px",
+          height: "700px",
+          background: "radial-gradient(circle, rgba(124,58,237,0.13) 0%, transparent 65%)",
+          filter: "blur(40px)",
+        }}
+      />
 
-      {/* Meteors */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <Meteors number={18} />
-      </div>
+      {/* Bottom gradient fade */}
+      <div
+        className="absolute bottom-0 left-0 right-0 h-40 pointer-events-none"
+        style={{
+          background: "linear-gradient(to bottom, transparent, #030712)",
+        }}
+      />
 
-      {/* Main content */}
+      {/* Content */}
       <div className="relative z-10 text-center px-6 w-full max-w-4xl mx-auto">
+
         {/* Available badge */}
         <div
           className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium mb-8"
           style={{
-            border: "1px solid rgba(6,182,212,0.3)",
-            background: "rgba(6,182,212,0.08)",
-            color: "#22d3ee",
-            animation: "float-up 0.5s ease-out forwards",
+            border: "1px solid rgba(167,139,250,0.3)",
+            background: "rgba(124,58,237,0.1)",
+            color: "#a78bfa",
+            animation: "fadeUp 0.5s ease-out forwards",
             opacity: 0,
           }}
         >
           <span
             className="w-2 h-2 rounded-full"
-            style={{ background: "#22d3ee", animation: "pulse 2s infinite" }}
+            style={{ background: "#a78bfa", animation: "pulse 2s infinite" }}
           />
           Available for opportunities
         </div>
 
-        {/* Profile photo */}
+        {/* Avatar */}
         <div
           className="mx-auto mb-8"
           style={{
-            width: "128px",
-            height: "128px",
+            width: "130px",
+            height: "130px",
             borderRadius: "50%",
             padding: "2px",
-            background: "linear-gradient(135deg, #06b6d4, #3b82f6)",
-            animation: "float-up 0.5s ease-out 0.1s both",
+            background: "linear-gradient(135deg, #7c3aed, #4f46e5)",
+            animation: "fadeUp 0.5s ease-out 0.1s both",
             opacity: 0,
+            boxShadow: "0 0 40px rgba(124,58,237,0.35)",
           }}
         >
           <img
@@ -143,22 +125,23 @@ export function Hero() {
         <h1
           className="font-black tracking-tight text-white mb-4"
           style={{
-            fontSize: "clamp(2.5rem, 8vw, 5rem)",
-            lineHeight: 1.1,
-            animation: "float-up 0.5s ease-out 0.2s both",
+            fontSize: "clamp(2.8rem, 9vw, 5.5rem)",
+            lineHeight: 1.05,
+            animation: "fadeUp 0.5s ease-out 0.2s both",
             opacity: 0,
           }}
         >
-          Ebaju <AnimatedGradientText>Edward</AnimatedGradientText>
+          Ebaju{" "}
+          <span className="hero-gradient-text">Edward</span>
         </h1>
 
         {/* Typing role */}
         <div
-          className="text-xl font-medium mb-4"
+          className="text-xl font-medium mb-5"
           style={{
-            color: "#94a3b8",
+            color: "#6b7280",
             minHeight: "2rem",
-            animation: "float-up 0.5s ease-out 0.3s both",
+            animation: "fadeUp 0.5s ease-out 0.3s both",
             opacity: 0,
           }}
         >
@@ -170,7 +153,8 @@ export function Hero() {
               "Data Science Explorer",
               "CS Student",
             ]}
-            className="text-cyan-400 font-semibold"
+            className="font-semibold"
+            style={{ color: "#a78bfa" }}
           />
         </div>
 
@@ -178,8 +162,8 @@ export function Hero() {
         <p
           className="text-lg leading-relaxed max-w-xl mx-auto mb-10"
           style={{
-            color: "#64748b",
-            animation: "float-up 0.5s ease-out 0.4s both",
+            color: "#4b5563",
+            animation: "fadeUp 0.5s ease-out 0.4s both",
             opacity: 0,
           }}
         >
@@ -190,37 +174,22 @@ export function Hero() {
         {/* CTA buttons */}
         <div
           className="flex flex-wrap gap-4 justify-center mb-10"
-          style={{ animation: "float-up 0.5s ease-out 0.5s both", opacity: 0 }}
+          style={{ animation: "fadeUp 0.5s ease-out 0.5s both", opacity: 0 }}
         >
-          <ShimmerButton
+          <a
             href="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69934993075368f2806495d7/db0d2b74c_EbajuEdward_CV.pdf"
             target="_blank"
             rel="noopener noreferrer"
             download
-            className="px-8 py-3 text-base font-semibold"
+            className="btn-primary"
           >
             ⬇ Download CV
-          </ShimmerButton>
+          </a>
           <button
             onClick={() =>
-              document
-                .getElementById("projects")
-                ?.scrollIntoView({ behavior: "smooth" })
+              document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })
             }
-            className="px-8 py-3 rounded-full font-semibold transition-all duration-300"
-            style={{
-              border: "1px solid #334155",
-              color: "#94a3b8",
-              background: "transparent",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.borderColor = "#06b6d4";
-              e.currentTarget.style.color = "#22d3ee";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.borderColor = "#334155";
-              e.currentTarget.style.color = "#94a3b8";
-            }}
+            className="btn-ghost"
           >
             View Projects →
           </button>
@@ -229,7 +198,7 @@ export function Hero() {
         {/* Social icons */}
         <div
           className="flex justify-center gap-3 mb-14"
-          style={{ animation: "float-up 0.5s ease-out 0.6s both", opacity: 0 }}
+          style={{ animation: "fadeUp 0.5s ease-out 0.6s both", opacity: 0 }}
         >
           {socialLinks.map((s) => (
             <a
@@ -238,24 +207,7 @@ export function Hero() {
               target={s.href.startsWith("mailto") ? undefined : "_blank"}
               rel="noopener noreferrer"
               aria-label={s.label}
-              className="flex items-center justify-center transition-all duration-300"
-              style={{
-                width: "44px",
-                height: "44px",
-                borderRadius: "50%",
-                border: "1px solid #1e293b",
-                color: "#64748b",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = "#06b6d4";
-                e.currentTarget.style.color = "#22d3ee";
-                e.currentTarget.style.transform = "translateY(-4px)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = "#1e293b";
-                e.currentTarget.style.color = "#64748b";
-                e.currentTarget.style.transform = "translateY(0)";
-              }}
+              className="social-icon"
             >
               {s.icon}
             </a>
@@ -265,19 +217,11 @@ export function Hero() {
         {/* Scroll cue */}
         <button
           onClick={() =>
-            document
-              .getElementById("about")
-              ?.scrollIntoView({ behavior: "smooth" })
+            document.getElementById("about")?.scrollIntoView({ behavior: "smooth" })
           }
           aria-label="Scroll down"
-          className="mx-auto flex items-center justify-center transition-colors duration-300"
-          style={{ color: "#1e293b", display: "block" }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.color = "#22d3ee";
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.color = "#1e293b";
-          }}
+          className="mx-auto flex items-center justify-center transition-colors duration-300 scroll-cue"
+          style={{ color: "#1f2937", display: "block" }}
         >
           <svg
             width="24"

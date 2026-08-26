@@ -1,5 +1,4 @@
 import { ScrollReveal } from "../magicui/ScrollReveal";
-import { ShimmerButton } from "../magicui/ShimmerButton";
 
 const socials = [
   {
@@ -35,80 +34,60 @@ export function Contact() {
   return (
     <section
       id="contact"
-      className="py-24 px-6 relative overflow-hidden"
-      style={{ background: "rgba(15,23,42,0.6)" }}
+      className="py-28 px-6 relative overflow-hidden"
+      style={{ background: "#050810" }}
     >
-      {/* Background glow */}
+      {/* Ambient glow */}
       <div
         className="absolute pointer-events-none"
         style={{
-          bottom: "-100px",
+          bottom: "-80px",
           left: "50%",
           transform: "translateX(-50%)",
-          width: "600px",
-          height: "400px",
-          background:
-            "radial-gradient(ellipse, rgba(6,182,212,0.06) 0%, transparent 70%)",
-          filter: "blur(40px)",
+          width: "700px",
+          height: "500px",
+          background: "radial-gradient(ellipse, rgba(124,58,237,0.08) 0%, transparent 65%)",
+          filter: "blur(60px)",
         }}
       />
 
-      <div className="max-w-3xl mx-auto text-center relative">
+      {/* Top border glow */}
+      <div
+        className="absolute top-0 left-1/2 -translate-x-1/2 pointer-events-none"
+        style={{
+          width: "500px",
+          height: "1px",
+          background: "linear-gradient(90deg, transparent, rgba(124,58,237,0.4), transparent)",
+        }}
+      />
+
+      <div className="max-w-2xl mx-auto text-center relative">
         <ScrollReveal>
-          {/* Badge */}
-          <span
-            className="inline-block px-4 py-1.5 rounded-full text-sm font-medium mb-6"
-            style={{
-              border: "1px solid rgba(6,182,212,0.3)",
-              background: "rgba(6,182,212,0.08)",
-              color: "#22d3ee",
-            }}
-          >
-            Let's Connect
-          </span>
+          <span className="section-badge">Let's Connect</span>
 
           <h2
-            className="font-bold mb-6"
+            className="font-bold mt-4 mb-6"
             style={{ fontSize: "clamp(2rem, 5vw, 3rem)" }}
           >
             Ready to build{" "}
-            <span className="animated-gradient-text">something great?</span>
+            <span className="accent-gradient-text">something great?</span>
           </h2>
 
-          <p
-            className="text-lg leading-relaxed mb-10 max-w-xl mx-auto"
-            style={{ color: "#64748b" }}
-          >
+          <p className="text-lg leading-relaxed mb-10 max-w-xl mx-auto text-gray-600">
             Open to new opportunities, collaborations, or just a conversation
             about backend systems, ML, or anything tech.
           </p>
 
           {/* Contact buttons */}
           <div className="flex flex-wrap justify-center gap-4 mb-14">
-            <ShimmerButton
-              href="mailto:ebajuedward3@gmail.com"
-              className="px-8 py-3 text-base font-semibold"
-            >
+            <a href="mailto:ebajuedward3@gmail.com" className="btn-primary">
               ✉ ebajuedward3@gmail.com
-            </ShimmerButton>
+            </a>
             <a
               href="https://wa.me/256773033815"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-8 py-3 rounded-full font-semibold transition-all duration-300"
-              style={{
-                border: "1px solid #334155",
-                color: "#94a3b8",
-                background: "transparent",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = "#06b6d4";
-                e.currentTarget.style.color = "#22d3ee";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = "#334155";
-                e.currentTarget.style.color = "#94a3b8";
-              }}
+              className="btn-ghost"
             >
               📱 +256 773 033815
             </a>
@@ -116,11 +95,9 @@ export function Contact() {
 
           {/* Divider */}
           <div className="flex items-center gap-4 mb-10 max-w-xs mx-auto">
-            <div className="flex-1 h-px" style={{ background: "#1e293b" }} />
-            <span style={{ color: "#334155", fontSize: "12px" }}>
-              or find me on
-            </span>
-            <div className="flex-1 h-px" style={{ background: "#1e293b" }} />
+            <div className="flex-1 h-px" style={{ background: "#111827" }} />
+            <span className="text-xs" style={{ color: "#1f2937" }}>or find me on</span>
+            <div className="flex-1 h-px" style={{ background: "#111827" }} />
           </div>
 
           {/* Social links */}
@@ -132,24 +109,7 @@ export function Contact() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={s.label}
-                className="flex items-center justify-center transition-all duration-300"
-                style={{
-                  width: "48px",
-                  height: "48px",
-                  borderRadius: "50%",
-                  border: "1px solid #1e293b",
-                  color: "#475569",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = "#06b6d4";
-                  e.currentTarget.style.color = "#22d3ee";
-                  e.currentTarget.style.transform = "translateY(-4px)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = "#1e293b";
-                  e.currentTarget.style.color = "#475569";
-                  e.currentTarget.style.transform = "translateY(0)";
-                }}
+                className="social-icon"
               >
                 {s.icon}
               </a>

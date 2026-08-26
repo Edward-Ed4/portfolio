@@ -4,22 +4,27 @@ export default {
   theme: {
     extend: {
       colors: {
-        cyan: {
-          400: "#22d3ee",
-          500: "#06b6d4",
-          600: "#0891b2",
+        violet: {
+          300: "#c4b5fd",
+          400: "#a78bfa",
+          500: "#8b5cf6",
+          600: "#7c3aed",
+          700: "#6d28d9",
         },
-        blue: {
-          500: "#3b82f6",
-          600: "#2563eb",
+        indigo: {
+          400: "#818cf8",
+          500: "#6366f1",
+          600: "#4f46e5",
         },
+      },
+      fontFamily: {
+        sans: ["Inter", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "sans-serif"],
       },
       animation: {
         meteor: "meteor 5s linear infinite",
-        shimmer: "shimmer 2s linear infinite",
+        "fade-up": "fadeUp 0.5s ease-out forwards",
         "border-beam": "border-beam calc(var(--duration)*1s) infinite linear",
-        gradient: "gradient 8s linear infinite",
-        "fade-in-up": "fadeInUp 0.7s ease-out forwards",
+        "shimmer-text": "shimmer-text 4s linear infinite",
         "bounce-slow": "bounce 2s infinite",
         "pulse-slow": "pulse 3s infinite",
       },
@@ -27,23 +32,17 @@ export default {
         meteor: {
           "0%": { transform: "rotate(215deg) translateX(0)", opacity: "1" },
           "70%": { opacity: "1" },
-          "100%": {
-            transform: "rotate(215deg) translateX(-500px)",
-            opacity: "0",
-          },
-        },
-        shimmer: {
-          "0%": { backgroundPosition: "0 0" },
-          "100%": { backgroundPosition: "-200% 0" },
+          "100%": { transform: "rotate(215deg) translateX(-500px)", opacity: "0" },
         },
         "border-beam": {
           "100%": { "offset-distance": "100%" },
         },
-        gradient: {
-          to: { backgroundPosition: "var(--bg-size) 0" },
+        "shimmer-text": {
+          "0%": { backgroundPosition: "0% center" },
+          "100%": { backgroundPosition: "200% center" },
         },
-        fadeInUp: {
-          from: { opacity: "0", transform: "translateY(30px)" },
+        fadeUp: {
+          from: { opacity: "0", transform: "translateY(20px)" },
           to: { opacity: "1", transform: "translateY(0)" },
         },
       },

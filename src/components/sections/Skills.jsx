@@ -4,62 +4,49 @@ const skillGroups = [
   {
     title: "Languages",
     icon: "{ }",
-    accent: "text-cyan-400",
-    border: "hover:border-cyan-500/40",
-    top: "via-cyan-500/40",
+    accent: "#a78bfa",
+    glow: "rgba(167,139,250,0.08)",
+    borderHover: "rgba(167,139,250,0.3)",
     skills: ["Python (Advanced)", "C++", "SQL", "CSS", "JavaScript"],
   },
   {
     title: "Frameworks",
     icon: "⚙️",
-    accent: "text-blue-400",
-    border: "hover:border-blue-500/40",
-    top: "via-blue-500/40",
+    accent: "#818cf8",
+    glow: "rgba(129,140,248,0.08)",
+    borderHover: "rgba(129,140,248,0.3)",
     skills: ["Django", "Django REST Framework"],
   },
   {
     title: "Databases",
     icon: "🗄️",
-    accent: "text-purple-400",
-    border: "hover:border-purple-500/40",
-    top: "via-purple-500/40",
+    accent: "#c084fc",
+    glow: "rgba(192,132,252,0.08)",
+    borderHover: "rgba(192,132,252,0.3)",
     skills: ["PostgreSQL", "MySQL", "SQLite", "SQL Server"],
   },
   {
     title: "Tools & Platforms",
     icon: "🛠️",
-    accent: "text-emerald-400",
-    border: "hover:border-emerald-500/40",
-    top: "via-emerald-500/40",
-    skills: [
-      "Git",
-      "GitHub",
-      "Gunicorn",
-      "WhiteNoise",
-      "Microsoft Excel",
-      "Office.js",
-    ],
+    accent: "#6ee7b7",
+    glow: "rgba(110,231,183,0.06)",
+    borderHover: "rgba(110,231,183,0.25)",
+    skills: ["Git", "GitHub", "Gunicorn", "WhiteNoise", "Microsoft Excel", "Office.js"],
   },
   {
     title: "ML & Data Science",
     icon: "🧠",
-    accent: "text-pink-400",
-    border: "hover:border-pink-500/40",
-    top: "via-pink-500/40",
-    skills: [
-      "Machine Learning",
-      "Data Science",
-      "Predictive Modeling",
-      "Edge Impulse",
-      "TensorFlow Lite",
-    ],
+    accent: "#f9a8d4",
+    glow: "rgba(249,168,212,0.06)",
+    borderHover: "rgba(249,168,212,0.25)",
+    skills: ["Machine Learning", "Data Science", "Predictive Modeling", "Edge Impulse", "TensorFlow Lite"],
   },
   {
     title: "IoT & Hardware",
     icon: "📡",
-    accent: "text-orange-400",
-    border: "hover:border-orange-500/40",
-    top: "via-orange-500/40",
+    accent: "#fcd34d",
+    glow: "rgba(252,211,77,0.06)",
+    borderHover: "rgba(252,211,77,0.25)",
     skills: ["ESP32-CAM", "MQTT", "Flutter", "Firebase", "Edge Computing"],
   },
 ];
@@ -68,41 +55,48 @@ export function Skills() {
   return (
     <section
       id="skills"
-      className="py-24 px-6 relative"
-      style={{ background: "rgba(30,41,59,0.2)" }}
+      className="py-28 px-6 relative"
+      style={{ background: "#050810" }}
     >
-      <div className="absolute inset-0 dot-grid opacity-20 pointer-events-none" />
+      <div className="absolute inset-0 grid-bg opacity-40 pointer-events-none" />
+
+      {/* Top glow */}
+      <div
+        className="absolute top-0 left-1/2 -translate-x-1/2 pointer-events-none"
+        style={{
+          width: "600px",
+          height: "1px",
+          background: "linear-gradient(90deg, transparent, rgba(124,58,237,0.4), transparent)",
+        }}
+      />
 
       <div className="max-w-6xl mx-auto relative">
         <ScrollReveal>
           <div className="text-center mb-16">
-            <span className="inline-block px-4 py-1.5 rounded-full border border-slate-700 bg-slate-800/50 text-slate-400 text-sm font-medium mb-4">
-              What I Work With
-            </span>
-            <h2 className="text-4xl md:text-5xl font-bold">
-              Technical <span className="animated-gradient-text">Skills</span>
+            <span className="section-badge">What I Work With</span>
+            <h2 className="section-title mt-4">
+              Technical <span className="accent-gradient-text">Skills</span>
             </h2>
-            <p className="text-slate-500 mt-4 max-w-md mx-auto">
+            <p className="text-gray-600 mt-4 max-w-md mx-auto">
               Technologies and tools I use to build things
             </p>
           </div>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {skillGroups.map((group, gi) => (
             <ScrollReveal key={group.title} delay={gi * 80}>
               <div
-                className={`group relative bg-slate-800/50 border border-slate-700/60 rounded-2xl p-6 ${group.border} transition-all duration-300 h-full flex flex-col`}
+                className="skill-card group relative rounded-2xl p-6 h-full flex flex-col transition-all duration-300"
+                style={{ "--accent": group.accent, "--glow": group.glow, "--border-hover": group.borderHover }}
               >
-                {/* Top shimmer line on hover */}
-                <div
-                  className={`absolute top-0 left-6 right-6 h-px bg-gradient-to-r from-transparent ${group.top} to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-full`}
-                />
+                {/* Top glow line on hover */}
+                <div className="skill-card-glow-line" />
 
                 {/* Header */}
                 <div className="flex items-center gap-3 mb-5">
                   <span className="text-2xl">{group.icon}</span>
-                  <h3 className={`font-semibold text-base ${group.accent}`}>
+                  <h3 className="font-semibold text-base" style={{ color: group.accent }}>
                     {group.title}
                   </h3>
                 </div>
@@ -110,10 +104,7 @@ export function Skills() {
                 {/* Badges */}
                 <div className="flex flex-wrap gap-2 flex-1">
                   {group.skills.map((skill) => (
-                    <span
-                      key={skill}
-                      className="inline-block px-3 py-1.5 rounded-lg text-sm bg-slate-700/60 text-slate-300 border border-slate-600/50 hover:bg-slate-600/60 hover:text-white transition-all duration-200 cursor-default"
-                    >
+                    <span key={skill} className="skill-badge">
                       {skill}
                     </span>
                   ))}
