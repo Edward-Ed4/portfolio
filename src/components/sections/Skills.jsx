@@ -2,111 +2,109 @@ import { ScrollReveal } from "../magicui/ScrollReveal";
 
 const skillGroups = [
   {
+    num: "01",
     title: "Languages",
-    icon: "{ }",
     accent: "#a78bfa",
-    glow: "rgba(167,139,250,0.08)",
-    borderHover: "rgba(167,139,250,0.3)",
+    border: "rgba(167,139,250,0.2)",
     skills: ["Python (Advanced)", "C++", "SQL", "CSS", "JavaScript"],
   },
   {
+    num: "02",
     title: "Frameworks",
-    icon: "⚙️",
     accent: "#818cf8",
-    glow: "rgba(129,140,248,0.08)",
-    borderHover: "rgba(129,140,248,0.3)",
+    border: "rgba(129,140,248,0.2)",
     skills: ["Django", "Django REST Framework"],
   },
   {
+    num: "03",
     title: "Databases",
-    icon: "🗄️",
     accent: "#c084fc",
-    glow: "rgba(192,132,252,0.08)",
-    borderHover: "rgba(192,132,252,0.3)",
+    border: "rgba(192,132,252,0.2)",
     skills: ["PostgreSQL", "MySQL", "SQLite", "SQL Server"],
   },
   {
+    num: "04",
     title: "Tools & Platforms",
-    icon: "🛠️",
     accent: "#6ee7b7",
-    glow: "rgba(110,231,183,0.06)",
-    borderHover: "rgba(110,231,183,0.25)",
+    border: "rgba(110,231,183,0.15)",
     skills: ["Git", "GitHub", "Gunicorn", "WhiteNoise", "Microsoft Excel", "Office.js"],
   },
   {
+    num: "05",
     title: "ML & Data Science",
-    icon: "🧠",
     accent: "#f9a8d4",
-    glow: "rgba(249,168,212,0.06)",
-    borderHover: "rgba(249,168,212,0.25)",
+    border: "rgba(249,168,212,0.15)",
     skills: ["Machine Learning", "Data Science", "Predictive Modeling", "Edge Impulse", "TensorFlow Lite"],
   },
   {
+    num: "06",
     title: "IoT & Hardware",
-    icon: "📡",
     accent: "#fcd34d",
-    glow: "rgba(252,211,77,0.06)",
-    borderHover: "rgba(252,211,77,0.25)",
+    border: "rgba(252,211,77,0.15)",
     skills: ["ESP32-CAM", "MQTT", "Flutter", "Firebase", "Edge Computing"],
   },
 ];
 
 export function Skills() {
   return (
-    <section
-      id="skills"
-      className="py-28 px-6 relative"
-      style={{ background: "#050810" }}
-    >
+    <section id="skills" className="py-28 px-6 relative" style={{ background: "#050810" }}>
       <div className="absolute inset-0 grid-bg opacity-40 pointer-events-none" />
-
-      {/* Top glow */}
-      <div
-        className="absolute top-0 left-1/2 -translate-x-1/2 pointer-events-none"
-        style={{
-          width: "600px",
-          height: "1px",
-          background: "linear-gradient(90deg, transparent, rgba(124,58,237,0.4), transparent)",
-        }}
-      />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 pointer-events-none"
+        style={{ width: "600px", height: "1px", background: "linear-gradient(90deg, transparent, rgba(124,58,237,0.4), transparent)" }} />
 
       <div className="max-w-6xl mx-auto relative">
         <ScrollReveal>
-          <div className="text-center mb-16">
-            <span className="section-badge">What I Work With</span>
-            <h2 className="section-title mt-4">
-              Technical <span className="accent-gradient-text">Skills</span>
-            </h2>
-            <p className="text-gray-600 mt-4 max-w-md mx-auto">
-              Technologies and tools I use to build things
-            </p>
-          </div>
+          <span className="text-xs font-bold tracking-[0.25em] uppercase" style={{ color: "#7c3aed" }}>
+            What I Work With
+          </span>
+          <h2 className="font-black leading-none tracking-tight mt-3 mb-4"
+            style={{ fontSize: "clamp(2.5rem, 6vw, 4.5rem)" }}>
+            <span className="text-white">Skills &amp; </span>
+            <span className="accent-gradient-text">Tools</span>
+          </h2>
+          <p className="text-gray-600 max-w-xl mb-14">
+            A selection of the technical tools and technologies I use while
+            working on backend, ML, data, and IoT projects.
+          </p>
         </ScrollReveal>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {skillGroups.map((group, gi) => (
             <ScrollReveal key={group.title} delay={gi * 80}>
               <div
-                className="skill-card group relative rounded-2xl p-6 h-full flex flex-col transition-all duration-300"
-                style={{ "--accent": group.accent, "--glow": group.glow, "--border-hover": group.borderHover }}
+                className="group relative rounded-2xl p-6 h-full flex flex-col transition-all duration-300 hover:-translate-y-1"
+                style={{
+                  background: "rgba(255,255,255,0.015)",
+                  border: `1px solid ${group.border}`,
+                }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.borderColor = group.accent + "55";
+                  e.currentTarget.style.boxShadow = `0 0 30px ${group.accent}11`;
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.borderColor = group.border;
+                  e.currentTarget.style.boxShadow = "none";
+                }}
               >
-                {/* Top glow line on hover */}
-                <div className="skill-card-glow-line" />
-
-                {/* Header */}
-                <div className="flex items-center gap-3 mb-5">
-                  <span className="text-2xl">{group.icon}</span>
-                  <h3 className="font-semibold text-base" style={{ color: group.accent }}>
-                    {group.title}
-                  </h3>
+                {/* Numbered header */}
+                <div className="flex items-center gap-4 mb-5">
+                  <div
+                    className="w-10 h-10 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0"
+                    style={{ border: `1px solid ${group.accent}55`, color: group.accent, background: `${group.accent}10` }}
+                  >
+                    {group.num}
+                  </div>
+                  <h3 className="font-semibold text-white text-base">{group.title}</h3>
                 </div>
 
-                {/* Badges */}
+                {/* Top glow line */}
+                <div className="absolute top-0 left-6 right-6 h-px opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-full"
+                  style={{ background: `linear-gradient(90deg, transparent, ${group.accent}, transparent)` }} />
+
+                {/* Skill badges */}
                 <div className="flex flex-wrap gap-2 flex-1">
                   {group.skills.map((skill) => (
-                    <span key={skill} className="skill-badge">
-                      {skill}
-                    </span>
+                    <span key={skill} className="skill-badge">{skill}</span>
                   ))}
                 </div>
               </div>

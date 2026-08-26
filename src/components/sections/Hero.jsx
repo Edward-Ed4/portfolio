@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { ParticleCanvas } from "../magicui/ParticleCanvas";
 import { TypingAnimation } from "../magicui/TypingAnimation";
 
@@ -45,197 +46,161 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex items-center overflow-hidden"
       style={{ paddingTop: "72px", background: "#030712" }}
     >
-      {/* Three.js particle canvas */}
       <ParticleCanvas />
 
-      {/* Radial glow behind content */}
-      <div
-        className="absolute pointer-events-none"
-        style={{
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-          width: "700px",
-          height: "700px",
-          background: "radial-gradient(circle, rgba(124,58,237,0.13) 0%, transparent 65%)",
-          filter: "blur(40px)",
-        }}
-      />
+      {/* Left violet glow */}
+      <div className="absolute pointer-events-none" style={{
+        top: "40%", left: "25%", transform: "translate(-50%,-50%)",
+        width: "600px", height: "600px",
+        background: "radial-gradient(circle, rgba(124,58,237,0.12) 0%, transparent 65%)",
+        filter: "blur(60px)",
+      }} />
 
-      {/* Bottom gradient fade */}
-      <div
-        className="absolute bottom-0 left-0 right-0 h-40 pointer-events-none"
-        style={{
-          background: "linear-gradient(to bottom, transparent, #030712)",
-        }}
-      />
+      {/* Bottom fade */}
+      <div className="absolute bottom-0 left-0 right-0 h-48 pointer-events-none"
+        style={{ background: "linear-gradient(to bottom, transparent, #030712)" }} />
 
-      {/* Content */}
-      <div className="relative z-10 text-center px-6 w-full max-w-4xl mx-auto">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-12">
+        <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[calc(100vh-72px)] py-16">
 
-        {/* Available badge */}
-        <div
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium mb-8"
-          style={{
-            border: "1px solid rgba(167,139,250,0.3)",
-            background: "rgba(124,58,237,0.1)",
-            color: "#a78bfa",
-            animation: "fadeUp 0.5s ease-out forwards",
-            opacity: 0,
-          }}
-        >
-          <span
-            className="w-2 h-2 rounded-full"
-            style={{ background: "#a78bfa", animation: "pulse 2s infinite" }}
-          />
-          Available for opportunities
-        </div>
-
-        {/* Avatar */}
-        <div
-          className="mx-auto mb-8"
-          style={{
-            width: "130px",
-            height: "130px",
-            borderRadius: "50%",
-            padding: "2px",
-            background: "linear-gradient(135deg, #7c3aed, #4f46e5)",
-            animation: "fadeUp 0.5s ease-out 0.1s both",
-            opacity: 0,
-            boxShadow: "0 0 40px rgba(124,58,237,0.35)",
-          }}
-        >
-          <img
-            src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69934993075368f2806495d7/e4c600b3c_edward.jpg"
-            alt="Ebaju Edward"
-            style={{
-              width: "100%",
-              height: "100%",
-              borderRadius: "50%",
-              objectFit: "cover",
-              display: "block",
-            }}
-          />
-        </div>
-
-        {/* Name */}
-        <h1
-          className="font-black tracking-tight text-white mb-4"
-          style={{
-            fontSize: "clamp(2.8rem, 9vw, 5.5rem)",
-            lineHeight: 1.05,
-            animation: "fadeUp 0.5s ease-out 0.2s both",
-            opacity: 0,
-          }}
-        >
-          Ebaju{" "}
-          <span className="hero-gradient-text">Edward</span>
-        </h1>
-
-        {/* Typing role */}
-        <div
-          className="text-xl font-medium mb-5"
-          style={{
-            color: "#6b7280",
-            minHeight: "2rem",
-            animation: "fadeUp 0.5s ease-out 0.3s both",
-            opacity: 0,
-          }}
-        >
-          <TypingAnimation
-            texts={[
-              "Backend Developer",
-              "Django Expert",
-              "ML Enthusiast",
-              "Data Science Explorer",
-              "CS Student",
-            ]}
-            className="font-semibold"
-            style={{ color: "#a78bfa" }}
-          />
-        </div>
-
-        {/* Description */}
-        <p
-          className="text-lg leading-relaxed max-w-xl mx-auto mb-10"
-          style={{
-            color: "#4b5563",
-            animation: "fadeUp 0.5s ease-out 0.4s both",
-            opacity: 0,
-          }}
-        >
-          Passionate about building intelligent backend systems with Django and
-          exploring the intersection of Machine Learning and Data Science.
-        </p>
-
-        {/* CTA buttons */}
-        <div
-          className="flex flex-wrap gap-4 justify-center mb-10"
-          style={{ animation: "fadeUp 0.5s ease-out 0.5s both", opacity: 0 }}
-        >
-          <a
-            href="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69934993075368f2806495d7/db0d2b74c_EbajuEdward_CV.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            download
-            className="btn-primary"
+          {/* ── LEFT: Photo ── */}
+          <div
+            className="flex justify-center lg:justify-start"
+            style={{ animation: "fadeUp 0.6s ease-out 0.1s both", opacity: 0 }}
           >
-            ⬇ Download CV
-          </a>
-          <button
-            onClick={() =>
-              document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })
-            }
-            className="btn-ghost"
-          >
-            View Projects →
-          </button>
-        </div>
+            <div className="relative">
+              {/* Glow ring */}
+              <div className="absolute inset-0 rounded-2xl" style={{
+                background: "linear-gradient(135deg, #7c3aed, #4f46e5)",
+                filter: "blur(30px)",
+                opacity: 0.4,
+                transform: "scale(1.05)",
+              }} />
+              {/* Decorative block behind — like Brian's blue block */}
+              <div className="absolute -bottom-4 -right-4 rounded-2xl" style={{
+                width: "100%", height: "100%",
+                background: "linear-gradient(135deg, rgba(124,58,237,0.3), rgba(79,70,229,0.2))",
+                border: "1px solid rgba(124,58,237,0.25)",
+              }} />
+              {/* Photo */}
+              <div className="relative rounded-2xl overflow-hidden" style={{
+                width: "clamp(280px, 35vw, 420px)",
+                height: "clamp(340px, 45vw, 520px)",
+                border: "1px solid rgba(124,58,237,0.3)",
+                boxShadow: "0 0 60px rgba(124,58,237,0.2), 0 30px 80px rgba(0,0,0,0.6)",
+              }}>
+                <img
+                  src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69934993075368f2806495d7/e4c600b3c_edward.jpg"
+                  alt="Ebaju Edward"
+                  className="w-full h-full object-cover object-top"
+                />
+                {/* Subtle overlay */}
+                <div className="absolute inset-0" style={{
+                  background: "linear-gradient(to bottom, transparent 60%, rgba(3,7,18,0.5) 100%)",
+                }} />
+              </div>
+              {/* Available badge pinned to photo */}
+              <div
+                className="absolute -top-4 left-6 inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium"
+                style={{
+                  border: "1px solid rgba(167,139,250,0.35)",
+                  background: "rgba(3,7,18,0.9)",
+                  backdropFilter: "blur(10px)",
+                  color: "#a78bfa",
+                }}
+              >
+                <span className="w-2 h-2 rounded-full" style={{ background: "#a78bfa", animation: "pulse 2s infinite" }} />
+                Available for opportunities
+              </div>
+            </div>
+          </div>
 
-        {/* Social icons */}
-        <div
-          className="flex justify-center gap-3 mb-14"
-          style={{ animation: "fadeUp 0.5s ease-out 0.6s both", opacity: 0 }}
-        >
-          {socialLinks.map((s) => (
-            <a
-              key={s.label}
-              href={s.href}
-              target={s.href.startsWith("mailto") ? undefined : "_blank"}
-              rel="noopener noreferrer"
-              aria-label={s.label}
-              className="social-icon"
-            >
-              {s.icon}
-            </a>
-          ))}
-        </div>
+          {/* ── RIGHT: Text ── */}
+          <div className="flex flex-col gap-6 lg:pl-4">
+            {/* Role label */}
+            <div style={{ animation: "fadeUp 0.5s ease-out 0.2s both", opacity: 0 }}>
+              <span className="text-xs font-bold tracking-[0.25em] uppercase" style={{ color: "#a78bfa" }}>
+                Backend Developer
+              </span>
+            </div>
 
-        {/* Scroll cue */}
-        <button
-          onClick={() =>
-            document.getElementById("about")?.scrollIntoView({ behavior: "smooth" })
-          }
-          aria-label="Scroll down"
-          className="mx-auto flex items-center justify-center transition-colors duration-300 scroll-cue"
-          style={{ color: "#1f2937", display: "block" }}
-        >
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            style={{ animation: "bounce 2s infinite" }}
-          >
-            <path d="M12 5v14M5 12l7 7 7-7" />
-          </svg>
-        </button>
+            {/* Massive stacked name */}
+            <div style={{ animation: "fadeUp 0.5s ease-out 0.3s both", opacity: 0 }}>
+              <h1 className="font-black leading-none tracking-tight" style={{ fontSize: "clamp(3.5rem, 9vw, 7rem)" }}>
+                <span className="block text-white">EBAJU</span>
+                <span className="block hero-gradient-text">EDWARD</span>
+              </h1>
+            </div>
+
+            {/* Typing subtitle */}
+            <div style={{ animation: "fadeUp 0.5s ease-out 0.4s both", opacity: 0, minHeight: "2rem" }}>
+              <div className="flex items-center gap-3">
+                <div className="h-px w-8" style={{ background: "#7c3aed" }} />
+                <TypingAnimation
+                  texts={["Django Expert", "ML Enthusiast", "Data Science Explorer", "CS Student", "Problem Solver"]}
+                  className="text-lg font-semibold"
+                  style={{ color: "#6b7280" }}
+                />
+              </div>
+            </div>
+
+            {/* Description */}
+            <p className="text-lg leading-relaxed max-w-lg"
+              style={{ color: "#4b5563", animation: "fadeUp 0.5s ease-out 0.5s both", opacity: 0 }}>
+              Passionate about building intelligent backend systems with Django
+              and exploring the intersection of Machine Learning and Data Science.
+            </p>
+
+            {/* CTAs */}
+            <div className="flex flex-wrap gap-4"
+              style={{ animation: "fadeUp 0.5s ease-out 0.6s both", opacity: 0 }}>
+              <a
+                href="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69934993075368f2806495d7/db0d2b74c_EbajuEdward_CV.pdf"
+                target="_blank" rel="noopener noreferrer" download
+                className="btn-primary"
+              >
+                ⬇ Download CV
+              </a>
+              <button
+                onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
+                className="btn-ghost"
+              >
+                View My Work →
+              </button>
+            </div>
+
+            {/* Social icons */}
+            <div className="flex gap-3" style={{ animation: "fadeUp 0.5s ease-out 0.7s both", opacity: 0 }}>
+              {socialLinks.map((s) => (
+                <a key={s.label} href={s.href}
+                  target={s.href.startsWith("mailto") ? undefined : "_blank"}
+                  rel="noopener noreferrer" aria-label={s.label}
+                  className="social-icon">
+                  {s.icon}
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
+
+      {/* Scroll cue */}
+      <button
+        onClick={() => document.getElementById("about")?.scrollIntoView({ behavior: "smooth" })}
+        aria-label="Scroll down"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex items-center justify-center transition-colors duration-300"
+        style={{ color: "#1f2937" }}
+        onMouseEnter={e => e.currentTarget.style.color = "#a78bfa"}
+        onMouseLeave={e => e.currentTarget.style.color = "#1f2937"}
+      >
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+          style={{ animation: "bounce 2s infinite" }}>
+          <path d="M12 5v14M5 12l7 7 7-7" />
+        </svg>
+      </button>
     </section>
   );
 }
