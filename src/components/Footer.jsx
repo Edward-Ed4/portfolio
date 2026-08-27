@@ -18,7 +18,7 @@ const contactInfo = [
 
 export function Footer() {
   return (
-    <footer style={{ borderTop: "1px solid #0d1117", background: "#020c10" }}>
+    <footer style={{ borderTop: "1px solid #0d1117", background: "transparent" }}>
       <div className="max-w-6xl mx-auto px-6 py-16 grid sm:grid-cols-3 gap-12">
         {/* Brand */}
         <div>

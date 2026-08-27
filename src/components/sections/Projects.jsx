@@ -85,7 +85,7 @@ function GitHubIcon() {
 
 export function Projects() {
   return (
-    <section id="projects" className="py-28 px-6 relative" style={{ background: "#041419" }}>
+    <section id="projects" className="py-28 px-6 relative" style={{ background: "transparent" }}>
       <div className="max-w-6xl mx-auto">
         <ScrollReveal>
           <div className="text-center mb-16">

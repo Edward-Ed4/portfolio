@@ -4,7 +4,7 @@ const tags = ["Open to Work", "Uganda 🇺🇬", "Remote Friendly"];
 
 export function About() {
   return (
-    <section id="about" className="py-28 px-6 relative" style={{ background: "#020c10" }}>
+    <section id="about" className="py-28 px-6 relative" style={{ background: "transparent" }}>
       <div className="absolute inset-0 grid-bg pointer-events-none" />
       <div className="max-w-6xl mx-auto relative">
 

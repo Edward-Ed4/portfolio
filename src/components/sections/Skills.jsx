@@ -35,7 +35,7 @@ const skillGroups = [
 
 export function Skills() {
   return (
-    <section id="skills" className="py-28 px-6 relative" style={{ background: "#020c10" }}>
+    <section id="skills" className="py-28 px-6 relative" style={{ background: "transparent" }}>
       <div className="absolute inset-0 grid-bg opacity-40 pointer-events-none" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 pointer-events-none"
         style={{ width: "600px", height: "1px", background: "linear-gradient(90deg, transparent, rgba(6,182,212,0.4), transparent)" }} />

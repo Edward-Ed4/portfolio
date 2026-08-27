@@ -1,4 +1,3 @@
-import { ParticleCanvas } from "../magicui/ParticleCanvas";
 import { TypingAnimation } from "../magicui/TypingAnimation";
 
 const socialLinks = [
@@ -11,7 +10,7 @@ const socialLinks = [
 export function Hero() {
   return (
     <section id="home" className="relative min-h-screen flex items-center overflow-hidden"
-      style={{ paddingTop: "72px", background: "#020c10" }}>
+      style={{ paddingTop: "72px", background: "transparent" }}>
       <ParticleCanvas />
 
       {/* Cyan glow */}

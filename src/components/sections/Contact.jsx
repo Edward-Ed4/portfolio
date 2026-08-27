@@ -8,7 +8,7 @@ const socials = [
 
 export function Contact() {
   return (
-    <section id="contact" className="py-28 px-6 relative overflow-hidden" style={{ background: "#020c10" }}>
+    <section id="contact" className="py-28 px-6 relative overflow-hidden" style={{ background: "transparent" }}>
       <div className="absolute pointer-events-none" style={{
         bottom: "-80px", left: "50%", transform: "translateX(-50%)",
         width: "700px", height: "500px",

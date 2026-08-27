@@ -41,7 +41,7 @@ function VerifiedIcon({ color }) {
 
 export function Education() {
   return (
-    <section id="education" className="py-28 px-6 relative" style={{ background: "#041419" }}>
+    <section id="education" className="py-28 px-6 relative" style={{ background: "transparent" }}>
       <div className="absolute top-0 left-1/2 -translate-x-1/2 pointer-events-none"
         style={{ width: "500px", height: "1px", background: "linear-gradient(90deg, transparent, rgba(6,182,212,0.4), transparent)" }} />
 

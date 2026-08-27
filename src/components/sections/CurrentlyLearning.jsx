@@ -49,7 +49,7 @@ function ProgressBar({ percent, color }) {
 
 export function CurrentlyLearning() {
   return (
-    <section id="learning" className="py-28 px-6 relative" style={{ background: "#020c10" }}>
+    <section id="learning" className="py-28 px-6 relative" style={{ background: "transparent" }}>
       <div className="absolute inset-0 grid-bg opacity-30 pointer-events-none" />
       <div className="absolute pointer-events-none" style={{
         top: "30%", right: "10%", width: "400px", height: "400px",
