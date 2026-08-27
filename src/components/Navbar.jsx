@@ -62,7 +62,7 @@ export function Navbar() {
 
         {/* Resume CTA */}
         <a href="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69934993075368f2806495d7/db0d2b74c_EbajuEdward_CV.pdf"
-          target="_blank" rel="noopener noreferrer" download
+          target="_blank" rel="noopener noreferrer" download="EbajuEdward_CV.pdf"
           className="hidden lg:inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-semibold transition-all duration-200 hover:-translate-y-0.5"
           style={{ background: "linear-gradient(135deg, #7c3aed, #4f46e5)", color: "#fff", boxShadow: "0 0 20px rgba(124,58,237,0.3)" }}>
           Resume
@@ -92,7 +92,7 @@ export function Navbar() {
             ))}
             <li className="pt-2">
               <a href="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69934993075368f2806495d7/db0d2b74c_EbajuEdward_CV.pdf"
-                target="_blank" rel="noopener noreferrer" download
+                target="_blank" rel="noopener noreferrer" download="EbajuEdward_CV.pdf"
                 className="w-full inline-flex justify-center px-4 py-3 rounded-full text-sm font-semibold"
                 style={{ background: "linear-gradient(135deg, #7c3aed, #4f46e5)", color: "#fff" }}>
                 Download Resume

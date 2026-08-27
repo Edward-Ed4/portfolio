@@ -159,7 +159,7 @@ export function Hero() {
               style={{ animation: "fadeUp 0.5s ease-out 0.6s both", opacity: 0 }}>
               <a
                 href="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69934993075368f2806495d7/db0d2b74c_EbajuEdward_CV.pdf"
-                target="_blank" rel="noopener noreferrer" download
+          target="_blank" rel="noopener noreferrer" download="EbajuEdward_CV.pdf"
                 className="btn-primary"
               >
                 ⬇ Download CV
