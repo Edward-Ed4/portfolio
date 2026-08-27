@@ -11,8 +11,6 @@ export function Hero() {
   return (
     <section id="home" className="relative min-h-screen flex items-center overflow-hidden"
       style={{ paddingTop: "72px", background: "transparent" }}>
-      <ParticleCanvas />
-
       {/* Cyan glow */}
       <div className="absolute pointer-events-none" style={{
         top: "40%", left: "25%", transform: "translate(-50%,-50%)",
