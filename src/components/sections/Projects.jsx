@@ -4,7 +4,7 @@ const projects = [
   {
     title: "Cassava Leaf Disease Detection",
     description:
-      "A deep learning system that classifies cassava leaf diseases from images using three transfer learning models — EfficientNetB0, ResNet50, and MobileNetV2 — deployed as a live Streamlit web app with camera capture and treatment advice.",
+      "A deep learning system that classifies cassava leaf diseases from images using three transfer learning models (EfficientNetB0, ResNet50, and MobileNetV2) deployed as a live Streamlit web app with camera capture and treatment advice.",
     image: "/cassava.png",
     badge: "Deep Learning",
     badgeColor: "#c084fc",
@@ -29,7 +29,7 @@ const projects = [
   {
     title: "CloudTasks – AWS Serverless Todo App",
     description:
-      "A fully serverless todo application on AWS — Lambda functions handle the API, API Gateway routes requests, MongoDB Atlas stores data, and the static frontend is hosted on S3 with a full CI/CD pipeline via GitHub Actions.",
+      "A fully serverless todo application on AWS. Lambda functions handle the API, API Gateway routes requests, MongoDB Atlas stores data, and the static frontend is hosted on S3 with a full CI/CD pipeline via GitHub Actions.",
     image: "/cloudtasks.png",
     badge: "Cloud / Serverless",
     badgeColor: "#fcd34d",
@@ -41,7 +41,7 @@ const projects = [
       "Three Lambda functions: getTodos, createTodo, deleteTodo",
       "MongoDB Atlas with cached client across warm invocations",
       "Static frontend hosted on AWS S3 with public website hosting",
-      "Full CI/CD pipeline — auto-deploys on every push to main",
+      "Full CI/CD pipeline, auto-deploys on every push to main",
     ],
     stats: [
       { value: "100%", label: "Serverless" },
@@ -54,7 +54,7 @@ const projects = [
   {
     title: "Pig Disease Detection System",
     description:
-      "An IoT + AI solution that combines ESP32-CAM hardware and machine learning to monitor pig health in real-time — helping farmers detect illnesses early and cut livestock losses significantly.",
+      "An IoT + AI solution that combines ESP32-CAM hardware and machine learning to monitor pig health in real-time, helping farmers detect illnesses early and cut livestock losses significantly.",
     image: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69934993075368f2806495d7/aaef4c265_image.png",
     badge: "IoT + AI",
     badgeColor: "#a78bfa",
@@ -79,7 +79,7 @@ const projects = [
   {
     title: "Hospital Management System",
     description:
-      "A comprehensive Django-based backend for managing hospital operations — doctors, patients, appointments, diagnoses, and medical history — with a production-ready REST API and role-based access control.",
+      "A comprehensive Django-based backend for managing hospital operations (doctors, patients, appointments, diagnoses, and medical history) with a production-ready REST API and role-based access control.",
     image: "/hms.png",
     badge: "Backend System",
     badgeColor: "#6ee7b7",

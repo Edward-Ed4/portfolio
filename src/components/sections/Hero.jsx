@@ -79,7 +79,7 @@ export function Hero() {
                 opacity: 0.4,
                 transform: "scale(1.05)",
               }} />
-              {/* Decorative block behind — like Brian's blue block */}
+              {/* Decorative block behind the photo */}
               <div className="absolute -bottom-4 -right-4 rounded-2xl" style={{
                 width: "100%", height: "100%",
                 background: "linear-gradient(135deg, rgba(124,58,237,0.3), rgba(79,70,229,0.2))",

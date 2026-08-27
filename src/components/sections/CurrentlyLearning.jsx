@@ -19,7 +19,7 @@ const learningItems = [
     title: "Cloud Architecture",
     subtitle: "AWS & Serverless",
     description:
-      "Expanding beyond Lambda — learning ECS, RDS, CloudFormation, and designing resilient distributed systems.",
+      "Expanding beyond Lambda, learning ECS, RDS, CloudFormation, and designing resilient distributed systems.",
     progress: 58,
     status: "Developing",
     statusColor: "#818cf8",

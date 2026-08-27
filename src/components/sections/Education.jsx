@@ -6,7 +6,7 @@ const certifications = [
     issuer: "Cisco Networking Academy",
     issued: "Sep 21, 2025",
     description:
-      "Completed hands-on training in the full data analytics process — data transformation, statistical analysis, Excel, SQL, and Tableau. Learned how analytics creates business value from raw data.",
+      "Completed hands-on training in the full data analytics process: data transformation, statistical analysis, Excel, SQL, and Tableau. Learned how analytics creates business value from raw data.",
     skills: ["SQL", "Excel", "Tableau", "Statistical Analysis", "Data Preparation"],
     color: "#22d3ee",
     bg: "rgba(34,211,238,0.05)",
@@ -23,7 +23,7 @@ const certifications = [
     issuer: "Cisco Networking Academy",
     issued: "Aug 25, 2025",
     description:
-      "Explored the foundations of data science — including the role of data in AI and ML, the data analytics landscape, and pathways to a career in the field.",
+      "Explored the foundations of data science, including the role of data in AI and ML, the data analytics landscape, and pathways to a career in the field.",
     skills: ["Data Science", "AI Fundamentals", "Machine Learning Concepts", "Data Analytics"],
     color: "#a78bfa",
     bg: "rgba(167,139,250,0.05)",
@@ -38,9 +38,9 @@ const certifications = [
   {
     title: "BSc Computer Science",
     issuer: "Makerere University",
-    issued: "2023 – Present",
+    issued: "2023 to Present",
     description:
-      "Currently pursuing a Bachelor of Science in Computer Science at one of East Africa's top universities — covering algorithms, data structures, systems, and software engineering.",
+      "Currently pursuing a Bachelor of Science in Computer Science at one of East Africa's top universities, covering algorithms, data structures, systems, and software engineering.",
     skills: ["Algorithms", "Data Structures", "Systems Programming", "Software Engineering", "Databases"],
     color: "#6ee7b7",
     bg: "rgba(110,231,183,0.05)",
@@ -103,7 +103,7 @@ export function Education() {
           </p>
         </ScrollReveal>
 
-        {/* Certificate cards — horizontal layout */}
+        {/* Certificate cards horizontal layout */}
         <div className="space-y-5">
           {certifications.map((cert, i) => (
             <ScrollReveal key={cert.title} delay={i * 100}>
