@@ -122,7 +122,7 @@ export function Projects() {
               Featured <span className="accent-gradient-text">Projects</span>
             </h2>
             <p className="text-gray-600 mt-4 max-w-lg mx-auto">
-              Deep learning, cloud infrastructure, IoT, and backend systems —
+              Deep learning, cloud infrastructure, IoT, and backend systems,
               built to solve real problems
             </p>
           </div>

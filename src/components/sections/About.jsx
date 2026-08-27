@@ -16,7 +16,7 @@ export function About() {
           </span>
         </ScrollReveal>
 
-        {/* Bold display headline — the "Designing. Developing." moment */}
+        {/* Bold display headline the "Designing. Developing." moment */}
         <ScrollReveal delay={100}>
           <div className="mt-4 mb-14">
             <h2 className="font-black leading-none tracking-tight" style={{ fontSize: "clamp(3rem, 8vw, 6rem)" }}>
@@ -39,7 +39,7 @@ export function About() {
                 with a deep passion for Machine Learning and Data Science.
               </p>
               <p className="text-gray-500 text-lg leading-relaxed">
-                I thrive in the logic-heavy world of server-side development —
+                I thrive in the logic-heavy world of server-side development,
                 specifically using Django to build the intelligent engines that
                 power modern applications.
               </p>
@@ -74,7 +74,7 @@ export function About() {
           <ScrollReveal direction="right">
             <div className="space-y-4">
               <p className="text-xs font-bold tracking-[0.2em] uppercase mb-6" style={{ color: "#7c3aed" }}>
-                — What I Do
+                What I Do
               </p>
               {[
                 { num: "01", title: "Backend Development", sub: "Django · REST APIs · PostgreSQL" },

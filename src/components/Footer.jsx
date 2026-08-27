@@ -89,7 +89,6 @@ export function Footer() {
             © 2026 Ebaju Edward. All rights reserved.
           </p>
           <p className="text-xs" style={{ color: "#111827" }}>
-            Designed &amp; built with React · Vite · Three.js · Tailwind CSS
           </p>
         </div>
       </div>
